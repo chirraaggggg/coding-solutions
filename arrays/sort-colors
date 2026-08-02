@@ -1,0 +1,54 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int n;
+    cin >> n;
+    int arr[n];
+    
+    unordered_map<int,int> mp;
+    for(int i=0; i<n; i++){
+        cin >> arr[i];
+        mp[arr[i]]++;
+    }
+    while(mp[0]--){
+        cout << 0 << " ";
+    }
+    while(mp[1]--){
+        cout << 1 << " ";
+    }
+    while(mp[2]--){
+        cout << 2 << " ";
+    }
+    
+    return 0;
+}
+
+
+or lc version of the lc 75 sort colors using unordered_map
+
+class Solution {
+public:
+    void sortColors(vector<int>& nums){
+        unordered_map<int,int> mp;
+
+        for(int num : nums){
+            mp[num]++;
+        }
+
+        int index = 0;
+
+        for(int i = 0; i<mp[0]; i++){
+            nums[index] = 0;
+            index++;
+        }
+        for(int i = 0; i<mp[1]; i++){
+            nums[index] = 1;
+            index++;
+        }
+        for(int i = 0; i<mp[2]; i++){
+            nums[index] = 2;
+            index++;
+        }
+    }
+}
